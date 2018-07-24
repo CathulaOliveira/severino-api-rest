@@ -33,7 +33,11 @@ public class ValidaDuplicacaoDeRegistros {
 					
 					for (Usuario usuBanco : listaUsuarios) {
 						if (usuBanco.getId()!=usuario.getId()) {
-							if (usuBanco.getReceber_notificacao().equals(SimNao.SIM) && usuBanco.getEmail()!=null && !usuBanco.getEmail().equals("")) {
+							if (usuBanco.getReceber_notificacao().equals(SimNao.SIM) 
+									&& usuBanco.getEmail()!=null 
+									&& !usuBanco.getEmail().equals("")
+									&& usuario.getEmail()!=null
+									&& !usuario.getEmail().equals("")) {
 								if (usuBanco.getEmail().toUpperCase().equals(usuario.getEmail().toUpperCase())) {
 									throw erroCampoEmailJaVinculadoAOutroUsuario.addDetalhe(usuBanco.getId()+" - "+usuBanco.getNome());
 								}
