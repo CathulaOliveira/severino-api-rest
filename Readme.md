@@ -9,7 +9,7 @@
 * PgAdmin4
 
 ### Tecnologias
-###### Wildfly 10.1
+###### Wildfly 13
 * Servidor de Aplicação
 * http://wildfly.org/downloads/
 
