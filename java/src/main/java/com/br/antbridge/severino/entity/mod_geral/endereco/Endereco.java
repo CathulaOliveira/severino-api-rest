@@ -37,9 +37,25 @@ public class Endereco {
 	@ApiModelProperty("Longitude")
 	private BigDecimal longitude;
 	
-	@Column(length=250)
-	@ApiModelProperty("Observação")
-	private String observacao;
+	@Column(length=8)
+	@ApiModelProperty("C.E.P.")
+	private String cep;
+	
+	@Column(length=150)
+	@ApiModelProperty("Rua")
+	private String rua;
+	
+	@Column(length=8)
+	@ApiModelProperty("Número")
+	private String numero;
+	
+	@Column(length=150)
+	@ApiModelProperty("Bairro")
+	private String bairro;
+
+	@Column(length=200)
+	@ApiModelProperty("Complemento")
+	private String complemento;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="municipioId", foreignKey=@ForeignKey(name="fk_endereco_municipio"))
