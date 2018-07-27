@@ -1,7 +1,6 @@
 
 package com.br.antbridge.severino.entity.mod_geral.usuario;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -19,13 +18,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.br.antbridge.core.util.enumeration.SimNao;
+import com.br.antbridge.severino.entity.mod_acesso.Acesso;
+import com.br.antbridge.severino.entity.mod_geral.endereco.Endereco;
+import com.br.antbridge.severino.resource.mod_geral.usuario.CnhCategoria;
+import com.br.antbridge.severino.resource.mod_geral.usuario.EstadoCivil;
+import com.br.antbridge.severino.resource.mod_geral.usuario.Sexo;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import com.br.antbridge.core.util.enumeration.SimNao;
-import com.br.antbridge.severino.entity.mod_acesso.Acesso;
-import com.br.antbridge.severino.entity.mod_geral.endereco.Endereco;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -65,6 +67,99 @@ public class Usuario {
 	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate data_admissao;
 	
+	@Column
+	@ApiModelProperty("Data Nascimento")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	private LocalDate data_nascimento;
+	
+	@Column(length=15)
+	@ApiModelProperty("Sexo")
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
+
+	@Column(length=20)
+	@ApiModelProperty("Estado Civil")
+	@Enumerated(EnumType.STRING)
+	private EstadoCivil estado_civil;
+	
+	@Column(length=100)
+	@ApiModelProperty("Naturalidade")
+	private String naturalidade;
+
+	@Column
+	@ApiModelProperty("Data Emissão RG")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	private LocalDate data_emissao_rg;
+
+	@Column
+	@ApiModelProperty("Data Validade CNH")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	private LocalDate data_validade_cnh;
+	
+	@Column(length=50)
+	@ApiModelProperty("CNH")
+	private String cnh;
+	
+	@Column(length=3)
+	@ApiModelProperty("CNH Categoria")
+	@Enumerated(EnumType.STRING)
+	private CnhCategoria cnh_categoria;
+	
+	@Column(length=2)
+	@ApiModelProperty("Emissão RG UF")
+	private String emissao_rg_uf;
+	
+	@Column(length=150)
+	@ApiModelProperty("Nome Completo")
+	private String nome_completo;
+	
+	@Column(length=150)
+	@ApiModelProperty("Nome Mãe")
+	private String nome_mae;
+	
+	@Column(length=150)
+	@ApiModelProperty("Nome Pai")
+	private String nome_pai;
+	
+	@Column(length=300)
+	@ApiModelProperty("Nome Pai")
+	private String observacao;
+	
+	@Column(length=70)
+	@ApiModelProperty("Carteira de Trabalho")
+	private String carteira_de_trabalho;
+	
+	@Column(length=70)
+	@ApiModelProperty("Carteira de Trabalho Série")
+	private String carteira_de_trabalho_serie;
+	
+	@Column(length=2)
+	@ApiModelProperty("Carteira de trabalho Estado")
+	private String carteira_de_trabalho_estado;
+	
+	@Column(length=70)
+	@ApiModelProperty("Título de Eleitor")
+	private String titulo_de_eleitor;
+	
+	@Column(length=10)
+	@ApiModelProperty("Título de Eleitor")
+	private String titulo_de_eleitor_zona;
+	
+	@Column(length=15)
+	@ApiModelProperty("Título de Eleitor")
+	private String titulo_de_eleitor_secao;
+	
+	@Column(length=20)
+	@ApiModelProperty("Título de Eleitor")
+	private String titulo_de_eleitor_numero;
+	
+	@Column(length=80)
+	@ApiModelProperty("Título de Eleitor")
+	private String titulo_de_eleitor_serie;
+	
 	@Column(length=26)
 	@ApiModelProperty("P.I.S.")
 	private Long pis;
@@ -85,18 +180,10 @@ public class Usuario {
 	@ApiModelProperty("Celular")
 	private String celular;
 	
-	@Column(precision = 11, scale = 8)
-	@ApiModelProperty("Latitude")
-	private BigDecimal latitude;
-	
 	@Column(length=3)
 	@ApiModelProperty("Receber Notificação")
 	@Enumerated(EnumType.STRING)
 	private SimNao receber_notificacao = SimNao.NAO;
-	
-	@Column(precision = 11, scale = 8)
-	@ApiModelProperty("Longitude")
-	private BigDecimal longitude;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="acessoId", foreignKey=@ForeignKey(name="fk_usuario_acesso"))

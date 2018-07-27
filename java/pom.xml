@@ -23,7 +23,7 @@
 
 		<!-- Define the version of the JBoss BOMs we want to import to specify 
 			tested stacks. -->
-		<version.jboss.bom>10.1.0.Final</version.jboss.bom>
+		<version.jboss.bom>13.0.0.Final</version.jboss.bom>
 
 		<!-- other plug-in versions -->
 		<version.war.plugin>3.0.0</version.war.plugin>
