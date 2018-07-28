@@ -1,0 +1,1 @@
+Toda atividade desenvolvida, dever ser feita em uma brantch especifica, que dever ter no nome o codigo da issue que esta sendo verificada exemplo issue 1 brantch develop-1-severino, após realizad o desenvolvimento deve ser solicitado um pull request que passará por uma aprovação dos mentores.
