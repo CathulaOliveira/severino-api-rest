@@ -78,10 +78,16 @@ public class RecuperacaoDeSenhaController {
 			
 			String tituloEmail = "SEVERINO - Recuperação de senha";
 			String mensagem = 
-				"Nome de Acesso: \n"+
-				" --> "+usuario.getAcesso().getNomeacesso()+"\n"+
-				"Nova Senha: \n"+
-				" --> "+senhaNova;
+				"<h2>Olá, "+usuario.getNome()+"</h2>"+
+			    "<br>"+
+				"<table border=\"0\" width=\"100%\" >\n" + 
+				"<tr>\n" + 
+				"<td>Nome de Acesso: "+usuario.getAcesso().getNomeacesso()+"</td>\n" + 
+				"</tr>\n" +  
+				"<tr>\n" + 
+				"<td>Nova senha: "+senhaNova+"</td>\n" + 
+				"</tr>\n" +
+				"</table>";
 			
 			//Envia e-mail para o usuário
 			new Email().sendEmail(
