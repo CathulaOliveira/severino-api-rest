@@ -1,8 +1,12 @@
 ## Severino 
 * [Wiki](https://github.com/Antbridge/severino-docs/wiki)
 
-### Documentação Swagger:
+```bash
+Swagger:
 * http://localhost:8082/severino/doc/index.html
+Java Melody
+* http://localhost:8082/severino/monitoring
+```
 
 ### Ferramenta de Desenvolvimento
 * Eclipse Jee Photon
@@ -12,6 +16,10 @@
 ###### Wildfly 13
 * Servidor de Aplicação
 * http://wildfly.org/downloads/
+
+###### Java Melody
+* Monitoramento de software
+* https://github.com/javamelody/javamelody/wiki
 
 ###### Postgres 10.4
 * Banco de dados
